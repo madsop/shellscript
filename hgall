@@ -1,0 +1,7 @@
+#! /bin/bash
+hg addremove
+hg ci -m "$1"
+hg pull
+hg merge
+hg ci -m "Merge"
+hg push

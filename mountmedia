@@ -1,0 +1,2 @@
+#! /bin/bash
+sshfs mads@hamachi:/media/MyBook /media/MyBook
