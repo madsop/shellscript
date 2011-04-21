@@ -1,0 +1,10 @@
+#! /bin/bash
+rsync -avz --del --progress --log-file=/media/Backup/Loggar/ebøker_$(date +%Y%m%d)_rsync.log /media/MyBook/E-bøker /media/Backup
+
+rsync -avz --del --progress --log-file=/media/Backup/Loggar/made_$(date +%Y%m%d)_rsync.log /media/MyBook/MADE /media/Backup/
+
+rsync -avz --del --progress --log-file=/media/Backup/Loggar/backup_$(date +%Y%m%d)_rsync.log /media/MyBook/Backup /media/Backup/
+
+rsync -avz --del --progress --log-file=/media/Backup/Loggar/skole_$(date +%Y%m%d)_rsync.log /media/MyBook/Skole /media/Backup/
+
+rsync -avz --del --progress --log-file=/media/Backup/Loggar/bilder_$(date +%Y%m%d)_rsync.log /media/MyBook/Bilder /media/Backup/
