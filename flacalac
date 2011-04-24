@@ -9,14 +9,9 @@ for f in /media/Musikk/Musikk/FLAC/*/*; do # for each item in test/ ...
 	fi
 done
 
-#a=$(find /media/Musikk/Musikk/FLAC/ -type d -mindepth 2) | while read a ; do
-#dirlist=$(ls -d /media/Musikk/Musikk/FLAC/*/*/)
-#echo $dirlist
-#for direc in $dirlist ; do
 for direc in "${dirlist[@]}"; do
-   echo "DIREC:" $direc
+   echo "Found " $direc
    for a in "$direc/"*.flac
-#    for a in $(find /media/Musikk/Musikk/FLAC -name '*.flac')
      do
          OUTF=`echo "$a" | sed s/"\.flac$"/"\.m4a"/g`
 
@@ -27,16 +22,11 @@ for direc in "${dirlist[@]}"; do
          TRACKNUMBER=`metaflac "$a" --show-tag=TRACKNUMBER | sed s/.*=//g`
          DATE=`metaflac "$a" --show-tag=DATE | sed s/.*=//g`
 
-#	 ALACPATH1=`/media/Musikk/ALAC`
-#	 echo $ALACPATH1
 	 mkdir -p "/media/Musikk/ALAC/$ARTIST/[$DATE] $ALBUM"
-#	 mkdir -p "$ALACPATH1/$ARTIST"
-#	 ALACPATH2=`"$ALACPATH1/$ARTIST"`
-#	 mkdir -p `"$ALACPATH2/[$DATE] $ALBUM"`
 	
          flac -c -d "$a" | ffmpeg -i - -acodec alac "$OUTF"
          mp4tags -s "$TITLE" -t "$TRACKNUMBER" -a "$ARTIST" -A "$ALBUM" -g "$GENRE" -y "$DATE" "$ARTIST - $ALBUM - $TRACKNUMBER - $TITLE".m4a
-	 echo "OUTF: " $OUTF
+	 echo "File: " $OUTF
 	 mv "$OUTF" "/media/Musikk/ALAC/$ARTIST/[$DATE] $ALBUM/"
       done
 done
