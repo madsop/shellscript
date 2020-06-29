@@ -1,2 +1,0 @@
-#! /bin/bash
-rsync -avz --del --progress /home/mads mads@hamachi:/media/Backup/Bærbar/home/ --exclude "Dropbox/" --exclude "Videoklipp" --exclude ".gvfs" --exclude ".local/share/Trash" --exclude ".cache/google-chrome" --exclude ".cache/spotify"

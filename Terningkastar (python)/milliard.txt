@@ -1,0 +1,7 @@
+mads@mads-laptop:~$ python terning.py 1000000000d6
+Verdi: 1    Antal: 166671318                      
+Verdi: 2    Antal: 166664147                      
+Verdi: 3    Antal: 166678459                      
+Verdi: 4    Antal: 166659421                      
+Verdi: 5    Antal: 166673114                      
+Verdi: 6    Antal: 166653541    
